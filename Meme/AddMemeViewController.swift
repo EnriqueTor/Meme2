@@ -13,18 +13,18 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     //MARK: - Outlets
     
+    @IBOutlet weak var share: UIBarButtonItem!
     @IBOutlet weak var imageShow: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
-    @IBOutlet weak var bottomText: UITextField!
-    @IBOutlet weak var share: UIBarButtonItem!
     @IBOutlet weak var addPhoto: UIImageView!
+    @IBOutlet weak var bottomText: UITextField!
     
     //MARK: - Variables
     
     let object = UIApplication.shared.delegate
+    let notiCenter = NotificationCenter.default
     var meme:Meme!
-
 
     //MARK: - Loads
     
@@ -48,24 +48,16 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     //MARK: - Actions
     
     @IBAction func imageFromCamera(_ sender: Any) {
-        
         presentPicker(withSourceType: .camera)
-        
     }
     
     @IBAction func pickImage(_ sender: Any) {
-       
         pickPhotoFromAlbum()
-    
     }
     
-    
     @IBAction func cancelMeme(_ sender: Any) {
-    
         cleanMeme()
         navigationController?.popViewController(animated: true)
-        print("go back")
-
     }
     
     @IBAction func sharePressed(_ sender: Any) {
@@ -80,7 +72,6 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             if succesful {
                 self.save()
-                print("HOLA")
                 self.cleanMeme()
                 self.navigationController?.popViewController(animated: true)
 
@@ -88,7 +79,6 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.cleanMeme()
         }
     }
-    
     
     @IBAction func addPhotoFromAlbum(_ sender: Any) {
         pickPhotoFromAlbum()
@@ -101,7 +91,6 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -124,7 +113,7 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // imagePicker
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageShow.image = image
@@ -135,26 +124,18 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
         dismiss(animated: true, completion: nil)
-        
     }
     
     func pickPhotoFromAlbum() {
-        
         presentPicker(withSourceType: .photoLibrary)
-        
     }
 
-    
     // keyboard
     
     func keyboardWillShow(_ notification:Notification) {
-        
         if bottomText.isEditing {
-        
-        view.frame.origin.y = 0 - getKeyboardHeight(notification)
-            
+            view.frame.origin.y = 0 - getKeyboardHeight(notification)
         }
     }
     
@@ -167,29 +148,16 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func subscribeToKeyboardNotifications() {
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow(_:)),
-                                               name: .UIKeyboardWillShow,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHide(_:)),
-                                               name: .UIKeyboardWillHide,
-                                               object: nil)
+        notiCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        notiCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
-        
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .UIKeyboardWillShow,
-                                                  object: nil)
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .UIKeyboardWillHide,
-                                                  object: nil)
+        notiCenter.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        notiCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
     func keyboardWillHide(_ notification:Notification) {
-        
         view.frame.origin.y = 0
     }
     
@@ -212,13 +180,11 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let memedImage = generateMemedImage()
         
-        let meme = Meme(topText: topText.text!,
-                        bottomText: bottomText.text!,
-                        originalImage: imageShow.image!,
-                        memedImage: memedImage)
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageShow.image!, memedImage: memedImage)
 
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
+        
         appDelegate.memes.append(meme)
         
     }

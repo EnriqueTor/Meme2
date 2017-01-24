@@ -11,10 +11,6 @@ import UIKit
 class MemeCellTableViewCell: UITableViewCell {
 
     @IBOutlet var memeImage: UIImageView!
-
     @IBOutlet var memeLabel: UILabel!
-
-
-
 
 }

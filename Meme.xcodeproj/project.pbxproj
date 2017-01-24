@@ -19,7 +19,6 @@
 		BBC77BEB1E369C41003E652F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC77BEA1E369C41003E652F /* ListViewController.swift */; };
 		BBC77BED1E36A740003E652F /* MemeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC77BEC1E36A740003E652F /* MemeCellTableViewCell.swift */; };
 		BBCEAD761E2DAE230027D05C /* CollectionMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCEAD751E2DAE230027D05C /* CollectionMemeViewController.swift */; };
-		BBCEAD781E2DB7C10027D05C /* MemeCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCEAD771E2DB7C10027D05C /* MemeCellCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		BBC77BEA1E369C41003E652F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		BBC77BEC1E36A740003E652F /* MemeCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCellTableViewCell.swift; sourceTree = "<group>"; };
 		BBCEAD751E2DAE230027D05C /* CollectionMemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionMemeViewController.swift; sourceTree = "<group>"; };
-		BBCEAD771E2DB7C10027D05C /* MemeCellCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCellCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +160,6 @@
 				BBC77BEA1E369C41003E652F /* ListViewController.swift */,
 				BBC77BEC1E36A740003E652F /* MemeCellTableViewCell.swift */,
 				BBCEAD751E2DAE230027D05C /* CollectionMemeViewController.swift */,
-				BBCEAD771E2DB7C10027D05C /* MemeCellCollectionViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,7 +311,6 @@
 			files = (
 				BB3F29EC1E2D34C8005CAC08 /* AddMemeViewController.swift in Sources */,
 				BB3F2A1B1E2D498B005CAC08 /* Meme.swift in Sources */,
-				BBCEAD781E2DB7C10027D05C /* MemeCellCollectionViewCell.swift in Sources */,
 				BBCEAD761E2DAE230027D05C /* CollectionMemeViewController.swift in Sources */,
 				BB3F29EA1E2D34C8005CAC08 /* AppDelegate.swift in Sources */,
 				BBC77BED1E36A740003E652F /* MemeCellTableViewCell.swift in Sources */,
