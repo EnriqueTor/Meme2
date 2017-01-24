@@ -89,6 +89,7 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    
     @IBAction func addPhotoFromAlbum(_ sender: Any) {
         pickPhotoFromAlbum()
     }
@@ -100,6 +101,7 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -22,7 +22,6 @@ class CollectionMemeViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        memes = appDelegate.memes
         setupView()
         collection.reloadData()
 
