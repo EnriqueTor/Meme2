@@ -19,13 +19,12 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var addPhoto: UIImageView!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     //MARK: - Variables
-    
-    let object = UIApplication.shared.delegate
-    let notiCenter = NotificationCenter.default
-    var meme:Meme!
+    let applicationDelegate = (UIApplication.shared.delegate as! AppDelegate)
 
+    
     //MARK: - Loads
     
     override func viewDidLoad() {
@@ -67,12 +66,11 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         let ac = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
         present(ac, animated: true, completion: nil)
         
-        ac.completionWithItemsHandler = {
-            (_, succesful, _, _) in
+        ac.completionWithItemsHandler = { activity, completed, items, error in
             
-            if succesful {
-                self.save()
-                self.cleanMeme()
+            if completed {
+                print("=============YES==========")
+                self.saveMeme()
                 self.navigationController?.popViewController(animated: true)
 
             }
@@ -142,19 +140,19 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         
         return keyboardSize.cgRectValue.height
     }
     
     func subscribeToKeyboardNotifications() {
-        notiCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        notiCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
-        notiCenter.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        notiCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
     
     func keyboardWillHide(_ notification:Notification) {
@@ -176,17 +174,17 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         return memedImage
     }
     
-    func save() {
+    func saveMeme() {
         
+        print("IM SAVING A MEME!")
         let memedImage = generateMemedImage()
         
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageShow.image!, memedImage: memedImage)
-
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
         
-        appDelegate.memes.append(meme)
+        print(meme)
         
+        applicationDelegate.memes.append(meme)
+        print("=============>>>>> \(applicationDelegate.memes)")
     }
     
     func cleanMeme() {
@@ -196,7 +194,6 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         imageShow.image = nil
         share.isEnabled = false
         addPhoto.isHidden = false
-        
     }
     
     func presentPicker(withSourceType source: UIImagePickerControllerSourceType){
@@ -208,15 +205,17 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.sourceType = source
         
         present(imagePicker, animated: true, completion: nil)
-    
     }
     
     func configureBars(hidden: Bool) {
         self.navigationController?.isNavigationBarHidden = hidden
-
+        self.toolbar.isHidden = hidden
     }
     
     func configure(textField: UITextField, withText text: String) {
+        
+        textField.delegate = self
+        textField.placeholder = text
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
@@ -229,11 +228,6 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
             NSStrokeWidthAttributeName: -1]
         
         textField.defaultTextAttributes = memeTextAttributes
-        
-        textField.delegate = self
-
-        textField.placeholder = text
-        
     }
     
 }

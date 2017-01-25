@@ -16,9 +16,10 @@
 		BB3F2A021E2D34C8005CAC08 /* MemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F2A011E2D34C8005CAC08 /* MemeTests.swift */; };
 		BB3F2A0D1E2D34C8005CAC08 /* MemeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F2A0C1E2D34C8005CAC08 /* MemeUITests.swift */; };
 		BB3F2A1B1E2D498B005CAC08 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3F2A1A1E2D498B005CAC08 /* Meme.swift */; };
+		BBC4D6AC1E38480900459A08 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4D6AB1E38480900459A08 /* MemeCollectionViewCell.swift */; };
+		BBC4D6AE1E385A3700459A08 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC4D6AD1E385A3700459A08 /* DetailViewController.swift */; };
 		BBC77BEB1E369C41003E652F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC77BEA1E369C41003E652F /* ListViewController.swift */; };
 		BBC77BED1E36A740003E652F /* MemeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC77BEC1E36A740003E652F /* MemeCellTableViewCell.swift */; };
-		BBCEAD761E2DAE230027D05C /* CollectionMemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCEAD751E2DAE230027D05C /* CollectionMemeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +55,10 @@
 		BB3F2A0C1E2D34C8005CAC08 /* MemeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeUITests.swift; sourceTree = "<group>"; };
 		BB3F2A0E1E2D34C8005CAC08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB3F2A1A1E2D498B005CAC08 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		BBC4D6AB1E38480900459A08 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		BBC4D6AD1E385A3700459A08 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BBC77BEA1E369C41003E652F /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		BBC77BEC1E36A740003E652F /* MemeCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCellTableViewCell.swift; sourceTree = "<group>"; };
-		BBCEAD751E2DAE230027D05C /* CollectionMemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionMemeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +161,8 @@
 				BB3F29EB1E2D34C8005CAC08 /* AddMemeViewController.swift */,
 				BBC77BEA1E369C41003E652F /* ListViewController.swift */,
 				BBC77BEC1E36A740003E652F /* MemeCellTableViewCell.swift */,
-				BBCEAD751E2DAE230027D05C /* CollectionMemeViewController.swift */,
+				BBC4D6AD1E385A3700459A08 /* DetailViewController.swift */,
+				BBC4D6AB1E38480900459A08 /* MemeCollectionViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -311,11 +314,12 @@
 			files = (
 				BB3F29EC1E2D34C8005CAC08 /* AddMemeViewController.swift in Sources */,
 				BB3F2A1B1E2D498B005CAC08 /* Meme.swift in Sources */,
-				BBCEAD761E2DAE230027D05C /* CollectionMemeViewController.swift in Sources */,
+				BBC4D6AC1E38480900459A08 /* MemeCollectionViewCell.swift in Sources */,
 				BB3F29EA1E2D34C8005CAC08 /* AppDelegate.swift in Sources */,
 				BBC77BED1E36A740003E652F /* MemeCellTableViewCell.swift in Sources */,
 				BB3F29F21E2D34C8005CAC08 /* Meme.xcdatamodeld in Sources */,
 				BBC77BEB1E369C41003E652F /* ListViewController.swift in Sources */,
+				BBC4D6AE1E385A3700459A08 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
