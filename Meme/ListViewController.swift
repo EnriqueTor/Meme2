@@ -57,12 +57,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setupView() {
 
-        tableView.delegate = self
-        tableView.dataSource = self
         collectionImage.isUserInteractionEnabled = true
-        
-        collection.delegate = self
-        collection.dataSource = self
         
         collection.isHidden = true
         collectionImage.isUserInteractionEnabled = true
@@ -80,7 +75,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func showMeme(list: Bool, collection: Bool, title: String) {
         
         tableView.isHidden = !list
-        collection.isHidden = !collection
+        self.collection.isHidden = !collection
         
         navigatorMeme.title = title
         
