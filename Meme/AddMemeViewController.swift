@@ -20,10 +20,11 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var addPhoto: UIImageView!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var navigatorBar: UINavigationBar!
     
     //MARK: - Variables
     let applicationDelegate = (UIApplication.shared.delegate as! AppDelegate)
-
+    
     //MARK: - Loads
     
     override func viewDidLoad() {
@@ -54,7 +55,7 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func cancelMeme(_ sender: Any) {
         cleanMeme()
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sharePressed(_ sender: Any) {
@@ -69,10 +70,14 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
             if completed {
                 self.saveMeme()
                 self.navigationController?.popViewController(animated: true)
-
+                
             }
             self.cleanMeme()
         }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     @IBAction func addPhotoFromAlbum(_ sender: Any) {
@@ -123,7 +128,7 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     func pickPhotoFromAlbum() {
         presentPicker(withSourceType: .photoLibrary)
     }
-
+    
     // keyboard
     
     func keyboardWillShow(_ notification:Notification) {
@@ -176,10 +181,11 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageShow.image!, memedImage: memedImage)
         
         applicationDelegate.memes.append(meme)
+        dismiss(animated: true, completion: nil)
     }
     
     func cleanMeme() {
-    
+        
         topText.text = nil
         bottomText.text = nil
         imageShow.image = nil
@@ -199,8 +205,8 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func configureBars(hidden: Bool) {
-        navigationController?.isNavigationBarHidden = hidden
         toolbar.isHidden = hidden
+        navigatorBar.isHidden = hidden
     }
     
     func configure(textField: UITextField, withText text: String) {

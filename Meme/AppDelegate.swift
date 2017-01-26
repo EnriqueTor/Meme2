@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import CoreData
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var memes = [Meme]()
+    var memes = [Meme]() 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+       
         UINavigationBar.appearance().barStyle = .blackOpaque
         return true
     }
