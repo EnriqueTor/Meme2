@@ -32,7 +32,7 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
