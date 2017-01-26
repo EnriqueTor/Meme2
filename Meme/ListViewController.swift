@@ -36,8 +36,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         memes = applicationDelegate.memes
         
         print(memes)
-        self.tableView.reloadData()
-        self.collection.reloadData()
+        tableView.reloadData()
+        collection.reloadData()
 
     }
     
@@ -48,8 +48,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         memes = applicationDelegate.memes
         
-        self.tableView.reloadData()
-        self.collection.reloadData()
+        tableView.reloadData()
+        collection.reloadData()
 
     }
     
@@ -79,8 +79,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func showMeme(list: Bool, collection: Bool, title: String) {
         
-        self.tableView.isHidden = !list
-        self.collection.isHidden = !collection
+        tableView.isHidden = !list
+        collection.isHidden = !collection
         
         navigatorMeme.title = title
         
@@ -133,9 +133,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
-//        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        
+              
         let selectedMeme = memes[indexPath.row]
         
         selectedMemeTitle = selectedMeme.topText + " " + selectedMeme.bottomText

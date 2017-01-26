@@ -208,8 +208,8 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func configureBars(hidden: Bool) {
-        self.navigationController?.isNavigationBarHidden = hidden
-        self.toolbar.isHidden = hidden
+        navigationController?.isNavigationBarHidden = hidden
+        toolbar.isHidden = hidden
     }
     
     func configure(textField: UITextField, withText text: String) {
