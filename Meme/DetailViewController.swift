@@ -10,7 +10,6 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    
     @IBOutlet weak var memeImage: UIImageView!
     
     var memedImage = UIImage()
@@ -23,13 +22,5 @@ class DetailViewController: UIViewController {
         memeImage.image = memedImage
         
         navigationController?.navigationBar.tintColor = UIColor.white
-        
     }
-
-    
-    
-    
-    
-    
-    
 }

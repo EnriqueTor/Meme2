@@ -24,13 +24,11 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     //MARK: - Variables
     let applicationDelegate = (UIApplication.shared.delegate as! AppDelegate)
 
-    
     //MARK: - Loads
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,7 +103,6 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         configure(textField: topText, withText: "add text")
         configure(textField: bottomText, withText: "add text")
-
     }
     
     // imagePicker
@@ -224,5 +221,4 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         textField.defaultTextAttributes = memeTextAttributes
     }
-    
 }

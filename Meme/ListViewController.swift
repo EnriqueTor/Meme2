@@ -37,7 +37,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.reloadData()
         collection.reloadData()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +48,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.reloadData()
         collection.reloadData()
-
     }
     
     // MARK: - Functions
@@ -68,7 +66,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
-
     }
     
     func showMeme(list: Bool, collection: Bool, title: String) {
@@ -77,19 +74,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.collection.isHidden = !collection
         
         navigatorMeme.title = title
-        
     }
     
     @IBAction func showList(_ sender: Any) {
         
         showMeme(list: true, collection: false, title: "Memes List")
-        
     }
     
     @IBAction func shoCollection(_ sender: Any) {
         
         showMeme(list: false, collection: true, title: "Memes Collection")
-        
     }
 
     
@@ -110,7 +104,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.memeLabel.text = data.topText + " " + data.bottomText
                 
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -134,7 +127,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - Methods CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+
         return memes.count
     }
     
@@ -155,8 +148,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             dest.memedImage = selectedMemeImage
             dest.memeTitle = selectedMemeTitle
-            
         }
     }
-    
 }
