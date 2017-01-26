@@ -45,7 +45,6 @@ class CollectionMemeViewController: UIViewController, UICollectionViewDelegate, 
         performSegue(withIdentifier: "addSegue", sender: self)
     }
     
-    
     //MARK: - Functions
     
     func setupView() {

@@ -34,7 +34,6 @@ class DetailViewController: UIViewController {
     func goBack() {
         
         tabBarController?.tabBar.isHidden = false
-        
         navigationController?.popViewController(animated: true)
         
     }

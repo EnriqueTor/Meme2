@@ -45,33 +45,25 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - Actions
     
     @IBAction func addMeme(_ sender: Any) {
-        
         performSegue(withIdentifier: "addSegue", sender: self)
-        
     }
     
     // MARK: - Functions
     
     func setupView() {
-        
         tabBarController?.tabBar.isHidden = false
-        
     }
     
     //MARK: - Methods TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return memes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "memeCell", for: indexPath) as! MemeTableViewCell
-        
         let data = memes[indexPath.row]
-        
         cell.memeImage.image = data.memedImage
-        
         cell.memeLabel.text = data.topText + " " + data.bottomText
         
         return cell
@@ -105,6 +97,4 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             dest.memeTitle = selectedMemeTitle
         }
     }
-
-    
 }

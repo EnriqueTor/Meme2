@@ -23,6 +23,7 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var navigatorBar: UINavigationBar!
     
     //MARK: - Variables
+    
     let applicationDelegate = (UIApplication.shared.delegate as! AppDelegate)
     
     //MARK: - Loads
@@ -76,15 +77,15 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     @IBAction func addPhotoFromAlbum(_ sender: Any) {
         pickPhotoFromAlbum()
     }
     
     //MARK: - Methods
+
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -129,6 +130,17 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         presentPicker(withSourceType: .photoLibrary)
     }
     
+    func presentPicker(withSourceType source: UIImagePickerControllerSourceType){
+        
+        let imagePicker = UIImagePickerController()
+        
+        imagePicker.delegate = self
+        imagePicker.navigationBar.tintColor = UIColor.white
+        imagePicker.sourceType = source
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+
     // keyboard
     
     func keyboardWillShow(_ notification:Notification) {
@@ -193,16 +205,6 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         addPhoto.isHidden = false
     }
     
-    func presentPicker(withSourceType source: UIImagePickerControllerSourceType){
-        
-        let imagePicker = UIImagePickerController()
-        
-        imagePicker.delegate = self
-        imagePicker.navigationBar.tintColor = UIColor.white
-        imagePicker.sourceType = source
-        
-        present(imagePicker, animated: true, completion: nil)
-    }
     
     func configureBars(hidden: Bool) {
         toolbar.isHidden = hidden
