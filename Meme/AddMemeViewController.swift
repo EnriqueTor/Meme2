@@ -89,8 +89,7 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        topText.resignFirstResponder()
-        bottomText.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     
