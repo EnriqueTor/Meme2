@@ -35,7 +35,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let applicationDelegate = (UIApplication.shared.delegate as! AppDelegate)
         memes = applicationDelegate.memes
         
-        print(memes)
         tableView.reloadData()
         collection.reloadData()
 
@@ -97,7 +96,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: - Methods TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print(memes.count)
         return memes.count
     }
     
@@ -109,12 +107,8 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.memeImage.image = data.memedImage
         
-        print("this is the memed imaged \(data.memedImage)")
-        
         cell.memeLabel.text = data.topText + " " + data.bottomText
-        
-        print("this is the text \(data.topText + data.bottomText)")
-        
+                
         return cell
         
     }

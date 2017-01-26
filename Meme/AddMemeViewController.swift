@@ -69,7 +69,6 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
         ac.completionWithItemsHandler = { activity, completed, items, error in
             
             if completed {
-                print("=============YES==========")
                 self.saveMeme()
                 self.navigationController?.popViewController(animated: true)
 
@@ -176,15 +175,11 @@ class AddMemeViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func saveMeme() {
         
-        print("IM SAVING A MEME!")
         let memedImage = generateMemedImage()
         
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageShow.image!, memedImage: memedImage)
         
-        print(meme)
-        
         applicationDelegate.memes.append(meme)
-        print("=============>>>>> \(applicationDelegate.memes)")
     }
     
     func cleanMeme() {
